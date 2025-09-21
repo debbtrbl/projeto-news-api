@@ -87,13 +87,6 @@ DELETE /api/usuarios/favoritos/:id    # Remover favorito
 - **noticias** (id, titulo, autor, categoria, link, imagemUrl, descricao, dataPublicacao)
 - **favoritos** (id, idUsuario, idNoticia)
 
-## 🧪 Testando a API
-
-Use ferramentas como:
-- **Insomnia** (recomendado)
-- **Postman**
-- **Thunder Client** (VS Code)
-
 ### Exemplo de criação de notícia:
 ```json
 {
@@ -111,3 +104,4 @@ Use ferramentas como:
 
 - O banco SQLite é criado automaticamente (`news.db`)
 - Não precisa instalar banco de dados externo
+
