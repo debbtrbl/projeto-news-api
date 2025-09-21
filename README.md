@@ -99,9 +99,19 @@ DELETE /api/usuarios/favoritos/:id    # Remover favorito
   "dataPublicacao": "01/01/2000",
 }
 ```
+### Exemplo de criação de usuário:
+```json
+{
+  "nome": "Fulano da Silva",
+  "email": "fulano@email.com", 
+  "senha": "senha123"
+}
+```
+
 
 ## 📝 Notas
 
 - O banco SQLite é criado automaticamente (`news.db`)
 - Não precisa instalar banco de dados externo
+
 
