@@ -95,8 +95,7 @@ DELETE /api/usuarios/favoritos/:id    # Remover favorito
   "categoria": "Tecnologia",
   "link": "https://exemplo.com/noticia",
   "imagemUrl": "https://exemplo.com/imagem.jpg",
-  "descricao": "primeira noticia",
-  "dataPublicacao": "01/01/2000",
+  "descricao": "primeira noticia"
 }
 ```
 ### Exemplo de criação de usuário:
@@ -113,5 +112,6 @@ DELETE /api/usuarios/favoritos/:id    # Remover favorito
 
 - O banco SQLite é criado automaticamente (`news.db`)
 - Não precisa instalar banco de dados externo
+
 
 
