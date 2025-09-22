@@ -16,7 +16,7 @@ function criarTabelas() {
   );
 
   db.run(
-    "CREATE TABLE IF NOT EXISTS noticias (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT NOT NULL, autor TEXT NOT NULL, descricao TEXT NOT NULL, categoria TEXT NOT NULL, link TEXT NOT NULL, imagemURL TEXT, dataPublicacao TEXT NOT NULL )"
+    "CREATE TABLE IF NOT EXISTS noticias (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT NOT NULL, autor TEXT NOT NULL, descricao TEXT NOT NULL, categoria TEXT NOT NULL, link TEXT NOT NULL, imagemURL TEXT, dataPublicacao DATE DEFAULT CURRENT_DATE)"
   );
 
   db.run(

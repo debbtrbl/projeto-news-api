@@ -25,13 +25,13 @@ router.get('/:id', (req, res) => {
 
 // post criar nova noticia (apenas admin)
 router.post('/', verificarToken, verificarAdmin, (req, res) => {
-    const { titulo, autor, descricao, categoria, link, imagemURL, dataPublicacao } = req.body;
+    const { titulo, autor, descricao, categoria, link, imagemURL } = req.body;
 
-    if (!titulo || !autor || !descricao || !categoria || !link || !dataPublicacao) {
+    if (!titulo || !autor || !descricao || !categoria || !link || !imagemURL) {
         return res.status(400).json({ error: 'Todos os campos obrigatórios devem ser preenchidos!'});
     }
 
-    db.run('INSERT INTO noticias (titulo, autor, descricao, categoria, link, imagemURL, dataPublicacao) VALUES (?, ?, ?, ?, ?, ?, ?)', [titulo, autor, descricao, categoria, link, imagemURL, dataPublicacao], 
+    db.run('INSERT INTO noticias (titulo, autor, descricao, categoria, link, imagemURL) VALUES (?, ?, ?, ?, ?, ?)', [titulo, autor, descricao, categoria, link, imagemURL], 
         function (err) {
             if (err) return res.status(500).json({ error: err.message });
 
@@ -46,9 +46,9 @@ router.post('/', verificarToken, verificarAdmin, (req, res) => {
 // put atualizar noticia por id (apenas admin)
 router.put('/:id', verificarToken, verificarAdmin, (req, res) => {
     const { id } = req.params;
-    const { titulo, autor, descricao, categoria, link, imagemURL, dataPublicacao } = req.body;
+    const { titulo, autor, descricao, categoria, link, imagemURL } = req.body;
 
-    db.run('UPDATE noticias SET titulo = ?, autor = ?, descricao = ?, categoria = ?, link = ?, imagemURL = ?, dataPublicacao = ? WHERE id = ?', [titulo, autor, descricao, categoria, link, imagemURL, dataPublicacao, id], 
+    db.run('UPDATE noticias SET titulo = ?, autor = ?, descricao = ?, categoria = ?, link = ?, imagemURL = ? WHERE id = ?', [titulo, autor, descricao, categoria, link, imagemURL, id], 
         function (err) {
             if (err) return res.status(500).json({ error: err.message });
             if (this.changes === 0) return res.status(404).json({ error: 'Notícia não encontrada!' });
